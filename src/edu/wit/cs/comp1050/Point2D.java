@@ -1,80 +1,60 @@
 package edu.wit.cs.comp1050;
-
-//TODO: document this class
+/*Austin Araneo
+ * Pa 3c
+ * Description:Takes in two points and makes it a coordinate to calculate distance
+ * */
 public class Point2D {
+	double x,y;
 	
-	/**
-	 * Constructor to initialize coordinates
+	/* Constructor to initialize coordinates
 	 * 
 	 * @param x x value
 	 * @param y y value
 	 */
 	public Point2D(double x, double y) {
-		// replace with your code
+		this.x = x;
+		this.y = y;
 	}
 	
-	/**
-	 * Initializes to (0., 0.)
-	 */
+	//* Initializes to (0., 0.)
 	public Point2D() {
-		// replace with your code
-		// MUST be a single call
-		// to the constructor above
+		new Point2D(0.0,0.0);
 	}
 	
-	/**
-	 * Get the x coordinate
-	 * 
-	 * @return x coordinate
-	 */
+	//* Get the x coordinate
 	public double getX() {
-		return 0.; // replace with your code
+		return x;
 	}
 	
-	/**
-	 * Get the y coordinate
-	 * 
-	 * @return y coordinate
-	 */
+	//* Get the y coordinate
 	public double getY() {
-		return 0.; // replace with your code
+		return y;
 	}
 	
-	/**
-	 * Gets a String representation
-	 * of the coordinate in the form
-	 * "(x, y)" (each with three decimal
-	 * places of precision)
+	/* Gets a String representation of the coordinate in the form "(x, y)" (each with three decimal places of precision)
 	 * 
 	 * #return "(x, y)"
 	 */
 	public String toString() {
-		return ""; // replace with your code
+		return String.format("(%.3f, %.3f)", x,y);
 	}
 	
-	/**
-	 * Method to compute the Euclidean/L2
-	 * distance between two points in 2D
-	 * space
+	/* Method to compute the Euclidean/L2 distance between two points in 2D space
 	 * 
 	 * @param p1 point 1
 	 * @param p2 point 2
 	 * @return straightline distance between p1 and p2
 	 */
 	public static double distance(Point2D p1, Point2D p2) {
-		return 0.; // replace with your code
+		return Math.sqrt(Math.pow((p1.x - p2.x),2) + Math.pow((p1.y - p2.y),2));
 	}
 	
-	/**
-	 * Method to compute the Euclidean
-	 * distance between this point
-	 * and a supplied point
+	/* Method to compute the Euclidean distance between this point and a supplied point
 	 * 
 	 * @param p input point
 	 * @return straightline distance between this point and p
 	 */
 	public double distanceTo(Point2D p) {
-		return 0.; // MUST be a single call to the static distance method
+		return Math.sqrt(Math.pow((this.x - p.x),2) + Math.pow((this.y - p.y),2));
 	}
-
 }

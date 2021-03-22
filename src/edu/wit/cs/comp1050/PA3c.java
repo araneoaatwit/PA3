@@ -1,37 +1,33 @@
 package edu.wit.cs.comp1050;
-
-//TODO: document this class
+/*Austin Araneo
+ * Pa 3c
+ * Description: calculates distance between two points 
+ * Input:point 1 and point 2  Output: distance between the two points or error if not inputed correctly 
+ * */
 public class PA3c {
 	
-	/**
-	 * Error to display if the command-line arguments are invalid
-	 */
+	
+	// * Error to display if the command-line arguments are invalid
 	public static final String ERR_USAGE = "Please supply 2 numbers (x y).";
 	
-	/**
-	 * Computes the distance using three methods
-	 * from the origin to a point supplied via
-	 * command-line arguments
+	/* Computes the distance using three methods from the origin to a point supplied via command-line arguments
 	 * 
 	 * @param args command-line args: x y
 	 */
 	public static void main(String[] args) {
-		
-		// replace the following line
-		// with whatever code you see fit
-		// in order to validate command-line
-		// arguments and, if valid, construct
-		// p via the two doubles supplied
-		final Point2D p = new Point2D();
-		
-		//////////////////////////////////////
-		// !! DO NOT CHANGE THE LINES BELOW !!
-		// 
-		// They assume p has been
-		// properly constructed and perform
-		// all necessary output for the
-		// program
-		//////////////////////////////////////
+		Point2D p = new Point2D();
+		try{
+            try{
+            p = new Point2D(Double.parseDouble(args[0]),Double.parseDouble(args[1]));
+            }
+            catch (IndexOutOfBoundsException ex){
+                System.out.println(ERR_USAGE);
+                System.exit(0);
+            }
+        }catch (NumberFormatException ex){
+            System.out.println(ERR_USAGE);
+            System.exit(0);
+        }
 		final Point2D o = new Point2D();
 		System.out.printf("Point 1: %s%n", o);
 		System.out.printf("Point 2: %s%n", p);
@@ -39,5 +35,4 @@ public class PA3c {
 		System.out.printf("Distance from P1: %.3f%n", o.distanceTo(p));
 		System.out.printf("Distance from P2: %.3f%n", p.distanceTo(o));
 	}
-
 }

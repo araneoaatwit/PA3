@@ -1,10 +1,13 @@
 package edu.wit.cs.comp1050;
 
-//TODO: document this class
+/*Austin Araneo
+ * Pa 3B
+ * Description: determines if the numbers are a linear Equation 
+ * */
 public class LinearEquation {
+	double a,b,c,d,e,f,x,y;
 	
-	/**
-	 * Initialize the linear equation of form:
+	/* Initialize the linear equation of form:
 	 * ax + by = e
 	 * cx + dy = f
 	 * 
@@ -16,106 +19,80 @@ public class LinearEquation {
 	 * @param f parameter f
 	 */
 	public LinearEquation(double a, double b, double c, double d, double e, double f) {
-		// replace with your code
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		this.d = d;
+		this.e = e;
+		this.f = f;
 	}
 	
-	/**
-	 * Convenience constructor to initialize
-	 * the linear equation via array
-	 * 
-	 * THIS CONSTRUCTOR CALLS THE CONSTRUCTOR
-	 * ABOVE USING THE ARRAY CONTENTS
+	/* Convenience constructor to initialize the linear equation via array THIS CONSTRUCTOR CALLS THE CONSTRUCTOR ABOVE USING THE ARRAY CONTENTS
 	 * 
 	 * @param p parameter array, assumed to be length 6 (a-f, in order)
 	 */
 	public LinearEquation(double[] p) {
-		// MUST call the above constructor
-		// with the contents of p
+		this(p[0],p[1],p[2],p[3],p[4],p[5]);
 	}
 	
-	/**
-	 * Returns parameter a
-	 * 
-	 * @return a
-	 */
+	
+	//* Returns parameter a
 	public double getA() {
-		return 0.; // replace with your code
+		return a;
 	}
 	
-	/**
-	 * Returns parameter b
-	 * 
-	 * @return b
-	 */
+	//* Returns parameter b
 	public double getB() {
-		return 0.; // replace with your code
+		return b;
 	}
 	
-	/**
-	 * Returns parameter c
-	 * 
-	 * @return c
-	 */
+	//* Returns parameter c
 	public double getC() {
-		return 0.; // replace with your code
+		return c;
 	}
 	
-	/**
-	 * Returns parameter d
-	 * 
-	 * @return d
-	 */
+	//* Returns parameter d
 	public double getD() {
-		return 0.; // replace with your code
+		return d;
 	}
 	
-	/**
-	 * Returns parameter e
-	 * 
-	 * @return e
-	 */
+	//* Returns parameter e
 	public double getE() {
-		return 0.; // replace with your code
+		return e;
 	}
 	
-	/**
-	 * Returns parameter f
-	 * 
-	 * @return f
-	 */
+	//* Returns parameter f
 	public double getF() {
-		return 0.; // replace with your code
+		return f;
 	}
 	
-	/**
-	 * Returns true if the parameterized
-	 * equation is solvable (i.e. denominator
-	 * ad-bc is not 0)
+	/* Returns true if the parameterized equation is solvable (i.e. denominator ad-bc is not 0)
 	 * 
 	 * @return true if solvable, false otherwise
 	 */
 	public boolean isSolvable() {
-		return false; // replace with your code
+		if((a*d)-(b*c)!= 0)
+			return true;
+		return false;
 	}
 	
-	/**
-	 * Returns solution for x if solvable,
-	 * null otherwise
+	/* Returns solution for x if solvable, null otherwise
 	 * 
 	 * @return x if solvable, null otherwise
 	 */
 	public Double getX() {
-		return null; // replace with your code
+		if(isSolvable())
+			return ((e*d)-(b*f))/((a*d)-(b*c));
+		return null;
 	}
 	
-	/**
-	 * Returns solution for y if solvable,
-	 * null otherwise
+	/* Returns solution for y if solvable, null otherwise
 	 * 
 	 * @return y if solvable, null otherwise
 	 */
 	public Double getY() {
-		return null; // replace with your code
+		if(isSolvable())
+			return ((a*f)-(e*c))/((a*d)-(b*c));
+		return null;
 	}
-
 }
